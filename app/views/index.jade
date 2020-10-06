@@ -1,0 +1,109 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title= title
+        link(href='https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap', rel='stylesheet')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+        link(href='/css/myStyle.css', rel='stylesheet')
+        link(href='/css/cv.css', rel='stylesheet')
+    body
+        header
+            h1='Profile'
+            div(class='topnav', id='myTopnav')
+                a(href='/', style='display:none;')='Home'
+                a(href='/', style='display:none;')='Home'
+                a(href='/', class='active')='Curriculum Vitae'
+        main
+            section(id='first')
+                h1 #{detail.fname} #{detail.lname}
+                img(src="/pict/thanapon.jpg", alt="Thanapon")
+                div
+                    h3='Contact'
+                    ul
+                        li Phone: #{detail.contact.phone}
+                        li Email: #{detail.contact.email}
+                        li Address: #{detail.contact.address}
+            section(id='second')
+                div(class='left')
+                    h3='Experiences'
+                    ul
+                        each exp,i in detail.experiences
+                            li
+                                p
+                                    b #{exp.year}<br>
+                                    | #{exp.position}<br>
+                                    | #{exp.org}
+                div(class='right')
+                    h3='Educations'
+                    ul
+                        each edu in detail.educations
+                            li
+                                p
+                                    b #{edu.year}<br>
+                                    | #{edu.major}<br>
+                                    if(edu.minor)
+                                        | ( #{edu.minor} )<br>
+                                    if(edu.faculty)
+                                        | #{edu.faculty}<br>
+                                    | #{edu.school}
+                div(class='left')
+                    h3='Awards'
+                    ul
+                        each awd in detail.awards
+                            li
+                                p
+                                    b #{awd.year}<br/>
+                                    | #{awd.reward}<br/>
+                                    | #{awd.name}
+                div(class='right')
+                    h3='Skills'
+                    ul(id='skills')
+                        each skill in detail.skills
+                            li
+                                p
+                                    label(for='') #{skill.name}
+                                    meter(id='', value=skill.level)
+                        //- li
+                        //-     p
+                        //-         label(for='cssSkill')='CSS : '
+                        //-         meter(id="cssSkill", value="0.8")
+                        //- li
+                        //-     p
+                        //-         label(for='jsSkill')='JavaScript : '
+                        //-         meter(id='jsSkill', value='0.7')
+                        //- li
+                        //-     p
+                        //-         label(for='phpSkill')='PHP : '
+                        //-         meter(id='phpSkill', value='0.9')
+                        //- li
+                        //-     p
+                        //-         label(for='sqlSkill')='SQL : '
+                        //-         meter(id='sqlSkill', value='0.7')
+                        //- li
+                        //-     p
+                        //-         label(for='nodeSkill')='Node.js : '
+                        //-         meter(id='nodeSkill', value='0.5')
+                        //- li
+                        //-     p
+                        //-         label(for='laravelSkill')='Laravel : '
+                        //-         meter(id='laravelSkill', value='0.6')
+                        //- li
+                        //-     p
+                        //-         label(for='djangoSkill')='Django : '
+                        //-         meter(id='djangoSkill', value='0.6')
+                        //- li
+                        //-     p
+                        //-         label(for='wordpressSkill')='Wordpress : '
+                        //-         meter(id='wordpressSkill', value='0.9')
+            section(id='third')
+                h3='Hobbies & Interest'
+                div(id='myHobbies')
+                    img(src='/pict/camera.png', alt='take a pictures')
+                    img(src='/pict/novel.png', alt='read novels')
+                    img(src='/pict/mobile-game.png', alt='play mobile game')
+                    img(src='/pict/youtube.png', alt='watch a Youtube')
+        footer
+            p='Thanapon Yalan'
+            p

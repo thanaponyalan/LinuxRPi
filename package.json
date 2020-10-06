@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/thanaponyalan/LinuxRPi#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
-    "mongoose": "^5.10.7"
+    "jade": "^1.11.0",
+    "mongoose": "^5.10.7",
+    "morgan": "^1.10.0"
   }
 }
